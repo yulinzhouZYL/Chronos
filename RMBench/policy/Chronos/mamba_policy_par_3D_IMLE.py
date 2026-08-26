@@ -1321,7 +1321,7 @@ class MambaPolicy(nn.Module):
         t_v = t.unsqueeze(-1)
         q_target, v_target, a_target = self.cubic_spline(t_v, q_0, q_1)
         
-        sigma_peak = 0.03
+        sigma_peak = 0.02
         sigma_t = 16.0 * sigma_peak * ((t_v * (1.0 - t_v)) ** 2)
         sigma_dot_t = 16.0 * sigma_peak * (2.0 * t_v * (1.0 - t_v) * (1.0 - 2.0 * t_v))
         eps = torch.randn_like(q_target)
